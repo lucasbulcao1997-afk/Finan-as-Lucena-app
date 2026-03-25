@@ -484,15 +484,15 @@ export default function App() {
             {showCharts ? 'Ver Lista de Lançamentos' : 'Ver Gráficos e Relatórios'}
           </motion.button>
 
-          {/* Finalize Button */}
+          {/* Export Button */}
           <motion.button
             whileHover={{ scale: 1.02 }}
             whileTap={{ scale: 0.98 }}
-            onClick={handleFinalize}
+            onClick={handleExportExcel}
             className="w-full py-5 bg-emerald-500 text-white rounded-[1.5rem] font-bold text-lg hover:bg-emerald-600 transition-all shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3"
           >
-            <CheckCircle2 className="w-6 h-6" />
-            Finalizar Lançamentos
+            <Download className="w-6 h-6" />
+            Exportar para Excel
           </motion.button>
         </div>
 
@@ -589,7 +589,14 @@ export default function App() {
                         <p className="font-bold text-zinc-900">{t.category}</p>
                         <p className="text-xs text-zinc-400 font-medium">
                           {format(parseISO(t.date), "dd 'de' MMMM", { locale: ptBR })}
-                          {t.description && ` • ${t.description}`}
+                          {t.description && (
+                            <>
+                              {' • '}
+                              <span className="font-bold uppercase text-zinc-600">
+                                {t.description}
+                              </span>
+                            </>
+                          )}
                         </p>
                       </div>
                     </div>
