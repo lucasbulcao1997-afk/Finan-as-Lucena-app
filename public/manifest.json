@@ -1,0 +1,16 @@
+{
+  "short_name": "Finanças Lucena",
+  "name": "Finanças Lucena - Gestão Financeira",
+  "icons": [
+    {
+      "src": "https://cdn-icons-png.flaticon.com/512/2489/2489756.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#18181b",
+  "background_color": "#ffffff"
+}

@@ -472,16 +472,29 @@ export default function App() {
           <div className="absolute -bottom-12 -left-12 w-48 h-48 bg-zinc-800/50 rounded-full blur-3xl" />
         </motion.div>
 
-        {/* Finalize Button */}
-        <motion.button
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-          onClick={handleFinalize}
-          className="w-full py-5 bg-emerald-500 text-white rounded-[1.5rem] font-bold text-lg hover:bg-emerald-600 transition-all shadow-xl shadow-emerald-500/20 mb-8 flex items-center justify-center gap-3"
-        >
-          <CheckCircle2 className="w-6 h-6" />
-          Finalizar Lançamentos
-        </motion.button>
+        <div className="flex flex-col gap-4 mb-8">
+          {/* Charts Button */}
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={() => setShowCharts(!showCharts)}
+            className="w-full py-5 bg-emerald-500 text-white rounded-[1.5rem] font-bold text-lg hover:bg-emerald-600 transition-all shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3"
+          >
+            {showCharts ? <BarChart3 className="w-6 h-6" /> : <PieChartIcon className="w-6 h-6" />}
+            {showCharts ? 'Ver Lista de Lançamentos' : 'Ver Gráficos e Relatórios'}
+          </motion.button>
+
+          {/* Finalize Button */}
+          <motion.button
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+            onClick={handleFinalize}
+            className="w-full py-5 bg-emerald-500 text-white rounded-[1.5rem] font-bold text-lg hover:bg-emerald-600 transition-all shadow-xl shadow-emerald-500/20 flex items-center justify-center gap-3"
+          >
+            <CheckCircle2 className="w-6 h-6" />
+            Finalizar Lançamentos
+          </motion.button>
+        </div>
 
         {showCharts ? (
           <motion.div 
